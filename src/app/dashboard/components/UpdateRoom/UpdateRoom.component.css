@@ -1,0 +1,31 @@
+button{
+  margin-right: 1em;
+  display: 100%;
+  padding: auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+mat-form-field{
+  width:100%;
+}
+textarea{
+  height:150px;
+}
+.mrb{
+  margin-left:10px ;
+}
+.db{
+  margin-top: 10px;
+}
+.move{
+  margin-left:1rem;
+}
+img {
+  width: 62%;
+  height: auto;
+}

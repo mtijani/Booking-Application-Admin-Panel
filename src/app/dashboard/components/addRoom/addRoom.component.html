@@ -1,0 +1,152 @@
+<div class="container">
+<h2>
+  Create New Room
+</h2>
+
+<!-- <mat-form-field appearance="outline">
+  <mat-label>Name*</mat-label>
+  <input formControlName="name" matInput />
+   <mat-error *ngIf="form.invalid">{{getErrorMessageFieldName()}}</mat-error> -->
+<!-- </mat-form-field>
+<div>
+<button mat-flat-button color="primary"  [disabled]="form.invalid">Save Changes</button>
+<a mat-stroked-button routerLink="/genres">Cancel</a>
+</div> -->
+<form (submit)="saveChanges()" [formGroup]="form">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name*</mat-label>
+    <input #textbox formControlName="RoomName" name="RoomName" matInput />
+    <mat-error *ngIf="form.invalid">{{getErrorMessageFieldName()}}</mat-error>
+  </mat-form-field>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input #textbox2 formControlName="Price" name="Price" matInput (keypress)="OnlyNumberAllower($event)" />
+
+      <mat-error *ngIf="form.invalid">Enter a correct price</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field #textbox3  appearance="outline">
+      <mat-label>Room's Type</mat-label>
+      <mat-select   formControlName="Type" name="Type">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" #textbox7>
+      <mat-select placeholder="Plan Tarifaire"   formControlName="toppings" [(value)]="selectedToppings" multiple>
+
+
+        <div class="mat-select-search-inner mat-select-search-inner-multiple">
+          <div class="input-container">
+            <input matInput class="mat-select-search-input" />
+          </div>
+
+        </div>
+        <div class="mat-select-search-inner mat-select-search-inner-multiple">
+
+        </div>
+
+        <mat-option *ngFor="let topping of list" [value]="topping" >{{topping}}</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+    <p>
+      <a mat-button (click)="SelectedToopings(selectedToppings)">Get toppings</a>
+
+    </p>
+
+    <br>
+  </div>
+  <div>
+    <mat-label>Availability</mat-label>
+
+    <mat-form-field appearance="outline">
+    <mat-label>From :</mat-label>
+    <input #textbox4 matInput name="From" formControlName="From"  [matDatepicker]="picker"/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>To :</mat-label>
+      <input #textbox5 matInput name="To" formControlName="To" [matDatepicker]="pick"/>
+            <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+            <mat-datepicker #pick ></mat-datepicker>
+
+      </mat-form-field>
+
+  </div>
+  <div>
+   <mat-form-field appearance="outline">
+    <mat-label >Description</mat-label>
+    <textarea #textbox6  matInput formControlName="Description" name="Description" rows="5" placeholder="Description"></textarea>
+   </mat-form-field>
+  </div>
+<div class="img" >
+      <div style="width:100px;float:left" >
+        <ng-picker-overlay
+        [apikey]="apiKey"
+        (uploadSuccess)="onUploadSuccess($event)"
+        (uploadError)="onUploadError($event)">
+        <!-- <input mat-input type="button" mat-raised-button value="Add Image" class="btn btn-primary" formControlName="ImageUrl" #textbox7  > Add Image
+        <input type="button"  formControlName="ImageUrl"> -->
+        <!-- <input class="btn btn-primary" #textbox7  type="button" value="Input"> -->
+        <!-- <img src="{{'5aYkEQJSQCmYShsoCnZN' | filestackTransform: transformOptions}}"> -->
+        <a mat-button color="primary" #textbox7 (click)="uploadFile()"  type="button" value="Input" (change)="fileChanged($event)"> Add Main Image </a>
+
+
+
+        </ng-picker-overlay>
+      </div>
+     <div class="img2" style="width:100px;float:left">
+      <ng-picker-overlay
+      [apikey]="apiKey"
+      (uploadSuccess)="onUploadSuccess1($event)"
+      (uploadError)="onUploadError1($event)">
+      <a mat-button color="primary" #textbox7 (click)="uploadFile1()"  type="button" value="Input" (change)="fileChanged1($event)"> Add Secondary image </a>
+
+      </ng-picker-overlay>
+    </div>
+    <div class="img3" >
+      <ng-picker-overlay
+      [apikey]="apiKey"
+      (uploadSuccess)="onUploadSuccess2($event)"
+      (uploadError)="onUploadError2($event)">
+      <a mat-button color="primary" #textbox7 (click)="uploadFile2()"  type="button" value="Input" (change)="fileChanged2($event)">Add Secondary image (2) </a>
+
+      </ng-picker-overlay>
+    </div>
+    <!-- <input #textbox10 type="hidden" > -->
+
+
+
+
+
+
+
+
+</div>
+  <!-- <app-input-img name="ImageUrls" (onImageSelected)="onImageSelected($event)"></app-input-img>
+  <app-input-img name="ImageUrls" (onImageSelected)="onImageSelected($event)"></app-input-img> -->
+
+
+
+
+<div>
+  <button mat-flat-button color="primary"  [disabled]="form.invalid" (click)="submitForm(textbox.value,textbox2.value,textbox3.value,textbox4.value,textbox5.value, textbox6.value)" >Add new room</button>
+<a mat-stroked-button routerLink="/">Cancel</a>
+</div>
+
+</form>
+
+
+
+
+
+

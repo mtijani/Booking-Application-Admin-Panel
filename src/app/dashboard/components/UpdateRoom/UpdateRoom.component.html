@@ -1,0 +1,164 @@
+<div class="container">
+  <h2>
+    Update Room
+  </h2>
+
+
+  <form
+  [formGroup]="form"
+
+  >
+
+      <div class="example-container" >
+        <div class="width-100">
+
+        </div>
+
+        <mat-form-field appearance="outline" class="width-50">
+          <mat-label>Room Name</mat-label>
+          <input #textBox name="RoomName"  formControlName="RoomName" matInput>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorName()}}</mat-error> -->
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="width-50 ml-2">
+          <mat-label>Price</mat-label>
+          <input #textBox1 name="Price"  formControlName="Price" matInput>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorLastName()}}</mat-error> -->
+
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Type</mat-label>
+          <input #textBox2 name="Type"  formControlName="Type" matInput >
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorEmail()}}</mat-error> -->
+
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>From</mat-label>
+          <input #textBox3 name="From" formControlName="From" matInput [matDatepicker]="picker"/>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorDateOFB()}}</mat-error> -->
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>To</mat-label>
+          <input #textBox4 name="To" formControlName="To" matInput [matDatepicker]="picker"/>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorDateOFB()}}</mat-error> -->
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+
+
+
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Description</mat-label>
+          <textarea #textBox5 name="Description"  formControlName="Description"  matInput > </textarea>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorPhoneNumber()}}</mat-error> -->
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Main Image</mat-label>
+          <input  name="ImageUrl" onkeydown="return false;" formControlName="ImageUrl"  matInput >
+          <img src="{{Image1}}" alt="">
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorPhoneNumber()}}</mat-error> -->
+          <br>
+          <ng-picker-overlay
+        [apikey]="apiKey"
+        (uploadSuccess)="onUploadSuccess($event)"
+        (uploadError)="onUploadError($event)">
+        <!-- <input mat-input type="button" mat-raised-button value="Add Image" class="btn btn-primary" formControlName="ImageUrl" #textbox7  > Add Image
+        <input type="button"  formControlName="ImageUrl"> -->
+        <!-- <input class="btn btn-primary" #textbox7  type="button" value="Input"> -->
+        <!-- <img src="{{'5aYkEQJSQCmYShsoCnZN' | filestackTransform: transformOptions}}"> -->
+        <a mat-button color="primary" #textbox7 (click)="uploadFile()"  type="button" value="Input" (change)="fileChanged($event)"> Update Main Image </a>
+
+
+
+        </ng-picker-overlay>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Second Image</mat-label>
+          <input  name="ImageUrl2" onkeydown="return false;"  formControlName="ImageUrl2"  matInput >
+          <img src="{{Image2}}" alt="">
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorPhoneNumber()}}</mat-error> -->
+          <br>
+          <ng-picker-overlay
+          [apikey]="apiKey"
+          (uploadSuccess)="onUploadSuccess1($event)"
+          (uploadError)="onUploadError1($event)">
+          <!-- <input mat-input type="button" mat-raised-button value="Add Image" class="btn btn-primary" formControlName="ImageUrl" #textbox7  > Add Image
+          <input type="button"  formControlName="ImageUrl"> -->
+          <!-- <input class="btn btn-primary" #textbox7  type="button" value="Input"> -->
+          <!-- <img src="{{'5aYkEQJSQCmYShsoCnZN' | filestackTransform: transformOptions}}"> -->
+          <a mat-button color="primary" #textbox7 (click)="uploadFile1()"  type="button" value="Input" (change)="fileChanged1($event)"> Update Second Image </a>
+
+
+
+          </ng-picker-overlay>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Third Image</mat-label>
+          <input  name="ImageUrl3"  formControlName="ImageUrl3" onkeydown="return false;"
+          matInput >
+          <img src="{{Image3}}" alt="">
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorPhoneNumber()}}</mat-error> -->
+          <br>
+          <ng-picker-overlay
+          [apikey]="apiKey"
+          (uploadSuccess)="onUploadSuccess2($event)"
+          (uploadError)="onUploadError2($event)">
+          <!-- <input mat-input type="button" mat-raised-button value="Add Image" class="btn btn-primary" formControlName="ImageUrl" #textbox7  > Add Image
+          <input type="button"  formControlName="ImageUrl"> -->
+          <!-- <input class="btn btn-primary" #textbox7  type="button" value="Input"> -->
+          <!-- <img src="{{'5aYkEQJSQCmYShsoCnZN' | filestackTransform: transformOptions}}"> -->
+          <a mat-button color="primary" #textbox7 (click)="uploadFile2()"  type="button" value="Input" (change)="fileChanged2($event)"> Update Third Image </a>
+
+
+
+          </ng-picker-overlay>
+
+        </mat-form-field>
+
+<!--                                                                                                 -->
+
+
+
+
+<!--                                                                                                -->
+
+
+        <br>
+
+        <button mat-button color="primary"
+        [disabled]="!form.valid"
+        type="button"
+        (click)="submitForm(textBox.value,textBox1.value,textBox2.value,textBox3.value,textBox4.value,textBox5.value) "
+
+
+        >
+
+        Update Room
+        </button>
+
+      </div>
+    </form>
+
+
+
+
+
+

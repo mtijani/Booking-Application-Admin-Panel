@@ -1,0 +1,103 @@
+<div class="mid">
+
+  <div>
+    <mat-label>Add new Room...?</mat-label>
+    <a mat-button color="primary" routerLink="/Admin/Addrooms">Add new Room</a>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Double" #input>
+  </mat-form-field>
+
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container> -->
+      <!-- <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let UsersList"> {{UsersList._id}} </td>
+      </ng-container> -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="RoomName">
+        <th mat-header-cell *matHeaderCellDef> RoomName </th>
+        <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.RoomName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Type">
+        <th mat-header-cell *matHeaderCellDef> Room Type</th>
+        <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.Type}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.Price}} </td>
+      </ng-container>
+      <!--                                   -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.Description}} </td>
+      </ng-container>
+      <!--                                    -->
+      <ng-container matColumnDef="ImageUrls" class="image">
+        <th mat-header-cell *matHeaderCellDef> Images </th>
+        <td mat-cell *matCellDef="let RoomsList"> <img src="{{RoomsList.ImageUrl}}" alt=""> </td>
+      </ng-container>
+      <!--                                    -->
+         <!--                                    -->
+         <ng-container matColumnDef="From">
+          <th mat-header-cell *matHeaderCellDef> From </th>
+          <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.From  | date:'dd-MM-YYYY'}} </td>
+        </ng-container>
+
+           <!--                                    -->
+         <!--                                    -->
+         <ng-container matColumnDef="To">
+          <th mat-header-cell *matHeaderCellDef> To </th>
+          <td mat-cell *matCellDef="let RoomsList"> {{RoomsList.To  | date:'dd-MM-YYYY'}} </td>
+        </ng-container>
+        <!--
+                       -->
+                       <ng-container matColumnDef="actions" >
+                        <th mat-header-cell *matHeaderCellDef  > Actions </th>
+
+                        <td mat-cell *matCellDef="let RoomsList">
+                          <div class="btn-group">
+
+                          <!-- <a
+                          routerLink="/UpdateUser/{{UserList._id}}"
+                          mat-button color="primary"> -->
+                          <div class="left">
+
+                          <a mat-button color="primary" routerLink="/Admin/Updaterooms/{{RoomsList._id}}"><mat-icon>edit</mat-icon> Edit </a>
+                        </div>
+                         </div>
+
+                        <!-- </a> -->
+                        <button mat-button color="warn" (click)="deleteRoom(RoomsList._id)  ">
+                          <a mat-button><mat-icon>delete</mat-icon> Delete</a>
+
+
+                        </button>
+
+
+                        </td>
+
+
+                      </ng-container>
+       <!--                                     -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  </div>

@@ -1,0 +1,26 @@
+button{
+  margin-right: 1em;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+mat-form-field{
+  width:100%;
+}
+textarea{
+  height:150px;
+}
+.img{
+  margin-bottom: 1rem;
+}
+.img2{
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+.img3{
+  margin-left: 17rem;
+}

@@ -1,0 +1,33 @@
+.mat-sidenav-container {
+  height: 100%;
+
+
+}
+.chevron-button{
+  transition: 300ms ease-in-out;
+  transform: rotate(0deg);
+  right:0;
+  float: right;
+  position: absolute;
+}
+.chevron-button.rotated{
+  transform: rotate(180deg);
+}
+.mat-sidenav{
+  color: blue;
+}
+.mat-toolbar{
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
+  z-index: 1000;
+}
+.flexExpand {
+  flex: 1 1 auto;
+}
+.login{
+  position: right;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}

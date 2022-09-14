@@ -1,0 +1,20 @@
+.mid{
+  padding-left: 2rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom:1rem;
+}
+table {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.space{
+  margin-left: 1rem;
+}
+
+

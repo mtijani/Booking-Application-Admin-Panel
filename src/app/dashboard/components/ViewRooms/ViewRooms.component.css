@@ -1,0 +1,48 @@
+.mid{
+  padding-left: 2rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom:1rem;
+}
+table {
+  margin-top: 1rem;
+  width: 100%;
+}
+table th {
+  margin: 20px ;
+  margin-left: 20px;
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.space{
+  margin-left: 1rem;
+}
+
+
+.image{
+  width: 180px;
+}
+img {
+  width: 62%;
+  height: auto;
+}
+.btn-group button {
+
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #fa0808;
+}
+.left{
+  margin-left: 1rem;
+}

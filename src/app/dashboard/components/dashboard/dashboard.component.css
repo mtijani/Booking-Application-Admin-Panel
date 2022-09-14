@@ -1,0 +1,26 @@
+.example-card {
+  max-width: 400px;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  width: 36px;
+  height: 36px;
+  /*display: table;*/
+  display: inline-block; /* CHANGED */
+  padding: 10px;
+  margin: 15px;
+  background: #fff;
+  color: #666;
+  text-align: center;
+  font: 28px Arial, sans-serif;
+  margin-left: 120px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

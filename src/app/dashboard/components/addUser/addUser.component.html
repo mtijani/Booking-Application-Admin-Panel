@@ -1,0 +1,87 @@
+<div class="container">
+  <h2>
+    Create New User
+  </h2>
+
+
+  <form
+  [formGroup]="form" (submit)="submitForm(textBox.value,textBox1.value,textBox2.value,textBox3.value,textBox4.value,textBox5.value,textBox6.value)"
+  >
+
+      <div class="example-container" >
+        <div class="width-100">
+
+        </div>
+
+        <mat-form-field appearance="outline" class="width-50">
+          <mat-label>First Name</mat-label>
+          <input #textBox name="name" formControlName="name" matInput>
+          <mat-error *ngIf="form.invalid">{{getErrorName()}}</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="width-50 ml-2">
+          <mat-label>Last Name</mat-label>
+          <input #textBox1 name="Lastname" formControlName="Lastname" matInput>
+          <mat-error *ngIf="form.invalid">{{getErrorLastName()}}</mat-error>
+
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Email address</mat-label>
+          <input #textBox2 name="email" formControlName="email" matInput placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="form.invalid">{{getErrorEmail()}}</mat-error>
+
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Phone Number</mat-label>
+          <input #textBox3 name="PhoneNumber" formControlName="PhoneNumber"  matInput (keypress)="OnlyNumberAllower($event)">
+          <mat-error *ngIf="form.invalid">{{getErrorPhoneNumber()}}</mat-error>
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>password</mat-label>
+          <input #textBox4 name="password" formControlName="Password" type="password" matInput >
+          <mat-error *ngIf="form.invalid">{{getErrorPassword()}}</mat-error>
+
+
+
+        </mat-form-field>
+        <br>
+        <label id="example-radio-group-label">Gender: </label>
+        <br><br>
+
+        <mat-radio-group  #textBox5 formControlName="Gender" name="Gender" aria-label="Select an option">
+          <mat-radio-button  value="male" >Male</mat-radio-button>
+          <mat-radio-button  value="female" class="move"  >Female</mat-radio-button>
+          <mat-error *ngIf="form.invalid">{{getErrorGender()}}</mat-error>
+
+        </mat-radio-group>
+        <br><br>
+
+        <mat-form-field appearance="outline" class="width-100">
+          <mat-label>Date of birth</mat-label>
+          <input #textBox6 name="DateOfBirth" formControlName="DateOfBirth" matInput [matDatepicker]="picker"/>
+          <mat-error *ngIf="form.invalid">{{getErrorDateOFB()}}</mat-error>
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+         </mat-form-field>
+         <button mat-button color="primary"
+         [disabled]="!form.valid"
+
+
+         >Add User</button>
+
+      </div>
+    </form>
+
+
+
+
+
+

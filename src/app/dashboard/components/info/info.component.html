@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>
+    Add new Tarrif plan
+  </h2>
+
+
+  <form
+  [formGroup]="form"
+  >
+
+      <div class="example-container" >
+        <div class="width-100">
+
+        </div>
+
+        <mat-form-field appearance="outline" class="width-50">
+          <mat-label>Plan Tarifaire</mat-label>
+          <input #textBox name="Plan" formControlName="Plan" matInput>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorName()}}</mat-error> -->
+
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" class="width-50">
+          <mat-label>Prix</mat-label>
+          <input #textBox name="Prix" formControlName="Prix" (keypress)="OnlyNumberAllower($event)"  matInput>
+          <!-- <mat-error *ngIf="form.invalid">{{getErrorName()}}</mat-error> -->
+
+        </mat-form-field>
+        <br>
+
+
+         <button mat-button color="primary"
+         [disabled]="!form.valid"
+         (click)="saveValues()"
+
+
+         >Add Plan</button>
+
+      </div>
+    </form>
+
+
+
+
+
+

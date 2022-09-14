@@ -1,0 +1,60 @@
+<div class="mid">
+
+  <div>
+    <mat-label>Add new Plan...?</mat-label>
+    <a mat-button color="primary" routerLink="/Admin/AddPlan">Add new Plan</a>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Single" #input>
+  </mat-form-field>
+
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+
+      <ng-container matColumnDef="Plan">
+        <th mat-header-cell *matHeaderCellDef> Plan </th>
+        <td mat-cell *matCellDef="let PlanList"> {{PlanList.Plan}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Prix">
+        <th mat-header-cell *matHeaderCellDef> Prix </th>
+        <td mat-cell *matCellDef="let PlanList"> {{PlanList.Prix}} </td>
+      </ng-container>
+
+        <ng-container matColumnDef="actions" >
+          <th mat-header-cell *matHeaderCellDef  > Actions </th>
+
+          <td mat-cell *matCellDef="let PlanList">
+            <div class="">
+
+            <a
+            routerLink="/Admin/UpdateUser/{{PlanList._id}}"
+            mat-button color="primary">
+
+            <a mat-button><mat-icon>edit</mat-icon> Edit </a>
+
+          </a>
+          <button mat-button color="warn" class="space" (click)="deletePlan(PlanList._id)  ">
+            <a mat-button><mat-icon>delete</mat-icon> Delete</a>
+
+
+          </button>
+
+        </div>
+          </td>
+
+
+        </ng-container>
+       <!--                                     -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+
+  </div>

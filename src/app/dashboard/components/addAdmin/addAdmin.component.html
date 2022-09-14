@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>
+    Create New Admin
+  </h2>
+
+
+  <form (submit)="saveChanges()" [formGroup]="form">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name*</mat-label>
+      <input formControlName="name"  matInput />
+      <mat-error *ngIf="form.invalid">{{getErrorMessageFieldName()}}</mat-error>
+    </mat-form-field>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name*</mat-label>
+        <input formControlName="lastName"  matInput />
+        <mat-error *ngIf="form.invalid">{{getErrorMessageFieldName()}}</mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field appearance="outline" class="width-100">
+        <mat-label>Email address</mat-label>
+        <input matInput placeholder="Ex. pat@example.com">
+      </mat-form-field>
+      <br>
+
+
+      <mat-form-field appearance="outline" class="width-100">
+        <mat-label>Phone Number</mat-label>
+        <input  matInput >
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" class="width-100">
+        <mat-label>Password</mat-label>
+        <input  matInput >
+      </mat-form-field>
+      <br>
+    </div>
+    <mat-label>Gender :</mat-label>
+    <br>
+    <br>
+
+    <div >
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button class="mrb" value="2">Female</mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+    <div class="db">
+      <mat-form-field>
+      <mat-label>Date Of birth</mat-label>
+      <input  matInput [matDatepicker]="picker"/>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+
+      </mat-form-field>
+
+
+    </div>
+
+  <div>
+    <button mat-flat-button color="primary"  [disabled]="form.invalid">Save Changes</button>
+  <a mat-stroked-button routerLink="/genres">Cancel</a>
+  </div>
+
+  </form>
+
+
+
+
+
+

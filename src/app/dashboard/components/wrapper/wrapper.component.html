@@ -1,0 +1,65 @@
+<mat-sidenav-container autosize="true" color="primary" >
+  <mat-sidenav #sidenav mode="side" opened="true" >
+    <mat-nav-list color="primary">
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="chevron-button sidenav-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+        </mat-icon>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'dashboard'" >home</mat-icon>
+        <span *ngIf="isExpanded">Dashboard</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'AddAdmin'" ><span class="material-symbols-outlined">
+          admin_panel_settings
+          </span></mat-icon>
+        <span *ngIf="isExpanded">Admins</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'Users'" >supervisor_account</mat-icon>
+        <span *ngIf="isExpanded">Users</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'Rooms'" >bed</mat-icon>
+        <span *ngIf="isExpanded">Rooms</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class=""  >book_online</mat-icon>
+        <span *ngIf="isExpanded">Reservations</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'Plans'"  >surfing</mat-icon>
+        <span *ngIf="isExpanded">Plan</span>
+      </mat-list-item>
+
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+  <div class="content">
+
+      <mat-toolbar color="primary">
+
+        <a mat-button><mat-icon>hotel</mat-icon> Save Your room</a>
+        <a mat-button >Rooms</a>
+
+        <span class="example-spacer"></span>
+        <!-- <a mat-button > Create Account </a> -->
+        <a mat-button [routerLink]="''" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
+        <a mat-button  [routerLink]="''"  *ngIf="userIsAuthenticated" >Log Out</a>
+
+      </mat-toolbar>
+
+
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
+
+
+
+
+
